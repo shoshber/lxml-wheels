@@ -16,6 +16,27 @@ matrix:
   exclude:
   - python: 3.5
   include:
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=2.7
+  - os: osx
+    language: generic
+    osx_image: xcode6.4
+    env:
+    - MB_PYTHON_VERSION=3.3
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.4
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.5
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.6
   - os: linux
     env:
     - MB_PYTHON_VERSION=2.6
@@ -66,27 +87,7 @@ matrix:
     env:
     - MB_PYTHON_VERSION=3.6
     - PLAT=i686
-  - os: osx
-    language: generic
-    env:
-    - MB_PYTHON_VERSION=2.7
-  - os: osx
-    language: generic
-    osx_image: xcode6.4
-    env:
-    - MB_PYTHON_VERSION=3.3
-  - os: osx
-    language: generic
-    env:
-    - MB_PYTHON_VERSION=3.4
-  - os: osx
-    language: generic
-    env:
-    - MB_PYTHON_VERSION=3.5
-  - os: osx
-    language: generic
-    env:
-    - MB_PYTHON_VERSION=3.6
+
 before_install:
 - source multibuild/common_utils.sh
 - source multibuild/travis_steps.sh
