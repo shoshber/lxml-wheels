@@ -15,7 +15,7 @@ function bdist_with_static_deps {
     local abs_wheelhouse=$1
     python setup.py clean
     if ! [ -n "$IS_OSX" ]; then
-        CFLAGS="-O3 -mtune=generic -pipe -fPIC";export CFLAGS
+        CFLAGS="-O3 -mtune=generic -pipe -fPIC -flto";export CFLAGS
     fi
     make wheel_static
     cp dist/*.whl $abs_wheelhouse
