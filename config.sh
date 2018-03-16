@@ -14,8 +14,10 @@
 function bdist_with_static_deps {
     local abs_wheelhouse=$1
     python setup.py clean
-    if ! [ -n "$IS_OSX" ]; then
-        CFLAGS="-O3 -mtune=generic -pipe -fPIC -flto";export CFLAGS
+    if [ -n "$IS_OSX" ]; then
+        export CFLAGS="$CFLAGS -flto";
+    else
+        export CFLAGS="-O3 -mtune=generic -pipe -fPIC -flto";
     fi
     export LIBXSLT_VERSION=1.1.32
     make wheel_static
