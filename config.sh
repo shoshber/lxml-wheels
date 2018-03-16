@@ -17,6 +17,7 @@ function bdist_with_static_deps {
     if ! [ -n "$IS_OSX" ]; then
         CFLAGS="-O3 -mtune=generic -pipe -fPIC -flto";export CFLAGS
     fi
+    export LIBXSLT_VERSION=1.1.32
     make wheel_static
     cp dist/*.whl $abs_wheelhouse
 }
