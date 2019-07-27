@@ -1,7 +1,7 @@
 env:
   global:
   - REPO_DIR=lxml
-  - BUILD_COMMIT=lxml-4.3.5
+  - BUILD_COMMIT=lxml-4.4.0
   - BUILD_DEPENDS="Cython"
   - TEST_DEPENDS="beautifulsoup4 cssselect"
   - PLAT=x86_64
