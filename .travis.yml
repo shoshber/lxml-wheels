@@ -1,9 +1,9 @@
 env:
   global:
   - REPO_DIR=lxml
-  - BUILD_COMMIT=lxml-4.4.1
+  - BUILD_COMMIT=lxml-4.4.2
   - BUILD_DEPENDS="Cython"
-  - TEST_DEPENDS="beautifulsoup4 cssselect"
+  - TEST_DEPENDS="beautifulsoup4 cssselecti html5lib rnc2rng"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
