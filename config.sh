@@ -16,6 +16,7 @@ function bdist_with_static_deps {
     python setup.py clean
     if [ -n "$IS_OSX" ]; then
         export CFLAGS="$CFLAGS -flto";
+	export LDFLAGS="$LDFLAGS -arch x86_64";
     else
         export CFLAGS="-O3 -mtune=core2 -pipe -fPIC -flto";
     fi
