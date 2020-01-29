@@ -21,11 +21,7 @@ matrix:
   - os: osx
     language: generic
     env:
-    - MB_PYTHON_VERSION=3.5
-  - os: osx
-    language: generic
-    env:
-    - MB_PYTHON_VERSION=3.6
+    - MB_PYTHON_VERSION=3.8
   - os: osx
     language: generic
     env:
@@ -33,7 +29,11 @@ matrix:
   - os: osx
     language: generic
     env:
-    - MB_PYTHON_VERSION=3.8
+    - MB_PYTHON_VERSION=3.6
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.5
   - os: linux
     env: MB_PYTHON_VERSION=2.7
   - os: linux
