@@ -59,11 +59,23 @@ matrix:
     - PLAT=i686
   - os: linux
     env:
+    - MB_PYTHON_VERSION=3.5
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - STATIC_DEPS=true
+  - os: linux
+    env:
     - MB_PYTHON_VERSION=3.6
   - os: linux
     env:
     - MB_PYTHON_VERSION=3.6
     - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - STATIC_DEPS=true
   - os: linux
     env:
     - MB_PYTHON_VERSION=3.7
@@ -73,11 +85,23 @@ matrix:
     - PLAT=i686
   - os: linux
     env:
+    - MB_PYTHON_VERSION=3.7
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - STATIC_DEPS=true
+  - os: linux
+    env:
     - MB_PYTHON_VERSION=3.8
   - os: linux
     env:
     - MB_PYTHON_VERSION=3.8
     - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.8
+    - PLAT=aarch64
+    - MB_ML_VER=2014
+    - STATIC_DEPS=true
 
 before_install:
 - source multibuild/common_utils.sh
