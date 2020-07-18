@@ -1,7 +1,7 @@
 env:
   global:
   - REPO_DIR=lxml
-  - BUILD_COMMIT=lxml-4.5.2
+  - BUILD_COMMIT=97f9d1e37157a2f7a8563f89a3972a4e73476fc0
   - BUILD_DEPENDS="Cython"
   - TEST_DEPENDS="beautifulsoup4 cssselect html5lib rnc2rng"
   - PLAT=x86_64
