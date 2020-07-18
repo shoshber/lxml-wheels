@@ -53,7 +53,9 @@ def main():
 
     with open("env_vars.sh", "w") as f:
         for name, value in env_vars:
-            f.write('export {}="{}"\n'.format(name, value))
+            env_var = '{}="{}"'.format(name, value)
+            print(env_var)
+            f.write("export {}\n".format(env_var))
 
 
 if __name__ == "__main__":
