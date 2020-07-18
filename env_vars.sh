@@ -1,1 +1,1 @@
-STATIC_DEPS=true
+export STATIC_DEPS=true
