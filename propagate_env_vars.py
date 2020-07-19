@@ -56,6 +56,7 @@ def main():
         env.update([
             [s.strip('\'" ') for s in env_var.split("=")]
             for env_var in (" " + read_makefile_var("AARCH64_ENV") + " ").split(" -e ")
+            if "=" in env_var
         ])
 
     env_vars = [
