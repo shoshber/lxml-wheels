@@ -9,6 +9,9 @@ ENV_VARS = [
     "STATIC_DEPS",
     "CFLAGS",
     "LDFLAGS",
+    "AR",
+    "NM",
+    "RANLIB",
     "LIBXML2_VERSION",
     "LIBXSLT_VERSION",
 ]
@@ -30,20 +33,30 @@ def copy_makefile_env(env):
 def read_makefile_var(name, _makefile={}):
     if not _makefile:
         with open("lxml/Makefile") as f:
-            for line in f:
+            lines = iter(f)
+            for line in lines:
                 if '=' not in line:
                     continue
                 match = re.match(r"([A-Z0-9_]+)\s*?=\s*(.+)", line)
                 if match and match.group(1) not in _makefile:
-                    _makefile[match.group(1)] = match.group(2).strip(' \'"')
+                    value = match.group(2).strip()
+                    while value.endswith("\\"):
+                        value = value[:-1].rstrip() + " " + next(lines).strip()
+                    _makefile[match.group(1)] = value.strip('\'"')
 
     return _makefile.get(name) or _makefile.get("MANYLINUX_" + name) or ""
 
 
 def main():
-    env = os.environ
+    env = os.environ.copy()
     copy_makefile_env(env)
     append_env(env, "CFLAGS", "-march=armv8-a -mtune=cortex-a72" if IS_ARM64 else "-march=core2")
+
+    if IS_ARM64:
+        env.update([
+            [s.strip('\'" ') for s in env_var.split("=")]
+            for env_var in (" " + read_makefile_var("AARCH64_ENV") + " ").split(" -e ")
+        ])
 
     env_vars = [
         (name, env[name])
