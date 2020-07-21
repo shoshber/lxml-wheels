@@ -4,6 +4,7 @@ import re
 
 
 IS_ARM64 = platform.processor() == "aarch64"
+IS_OSX = platform.system() == "Darwin"
 
 ENV_VARS = [
     "STATIC_DEPS",
@@ -58,6 +59,8 @@ def main():
             for env_var in (" " + read_makefile_var("AARCH64_ENV") + " ").split(" -e ")
             if "=" in env_var
         ])
+    elif IS_OSX:
+        append_env(env, "LDFLAGS", "-arch x86_64")
 
     env_vars = [
         (name, env[name])
