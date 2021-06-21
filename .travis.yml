@@ -1,7 +1,7 @@
 env:
   global:
   - REPO_DIR=lxml
-  - BUILD_COMMIT=lxml-4.6.3
+  - BUILD_COMMIT=master
   - BUILD_DEPENDS="Cython"
   - TEST_DEPENDS="beautifulsoup4 cssselect html5lib rnc2rng"
   - PLAT=x86_64
@@ -146,3 +146,6 @@ deploy:
   on:
     tags: true
     repo: lxml/lxml-wheels
+addons:
+  artifacts: true
+  working_dir: wheelhouse
