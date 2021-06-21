@@ -148,3 +148,4 @@ deploy:
     repo: lxml/lxml-wheels
 addons:
   artifacts: true
+  working_dir: wheelhouse
